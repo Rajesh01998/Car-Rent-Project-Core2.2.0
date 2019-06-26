@@ -1,0 +1,96 @@
+﻿@model CarRentProjectCore.Models.RentRequest.RentRequestViewModel
+
+@{
+    ViewData["Title"] = "Add New Rent Request";
+}
+
+<h1>Add New Rent Request</h1>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="CustomerId" class="form-control" asp-items="@Model.CustoemrLookUpdata">
+                        <option>Select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehiceTypeId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="VehiceTypeId" class="form-control" asp-items="@Model.VehicleTypeLookupData">
+                        <option>Select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromPlace" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FromPlace" class="form-control" />
+                    <span asp-validation-for="FromPlace" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="StartDateTime" class="form-control" />
+                    <span asp-validation-for="StartDateTime" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="ToPlace" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ToPlace" class="form-control" />
+                    <span asp-validation-for="ToPlace" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDateTime" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EndDateTime" class="form-control" />
+                    <span asp-validation-for="EndDateTime" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleQty" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="VehicleQty" class="form-control" />
+                    <span asp-validation-for="VehicleQty" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirCondition" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AirCondition" class="form-control" />
+                    <span asp-validation-for="AirCondition" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>&nbsp;
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+
+            </div>
+        </form>
+</div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
