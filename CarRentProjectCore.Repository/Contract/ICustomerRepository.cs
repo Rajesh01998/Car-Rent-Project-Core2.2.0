@@ -9,5 +9,6 @@ namespace CarRentProjectCore.Repository.Contract
     {
          Customer GetCustomerById(int id);
         ICollection<Customer> GetAllCustomer();
+        
     }
 }

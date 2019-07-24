@@ -1,0 +1,89 @@
+﻿@model CarRentProjectCore.Models.RentRequest.RentRequestViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Rent Request</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Edit" class="form-horizontal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select asp-for="CustomerId" asp-items="@Model.CustoemrLookUpdata" class="form-control" disabled>
+                    <option>
+                        Select..
+                    </option>
+                </select>
+               
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehiceTypeId" class="control-label"></label>
+
+                <select asp-for="CustomerId" asp-items="@Model.VehicleTypeLookupData" class="form-control">
+                    <option>
+                        Select..
+                    </option>
+                </select>
+
+                <span asp-validation-for="VehiceTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromPlace" class="control-label"></label>
+                <input asp-for="FromPlace" class="form-control" />
+                <span asp-validation-for="FromPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="control-label"></label>
+                <input asp-for="StartDateTime" class="form-control" />
+                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToPlace" class="control-label"></label>
+                <input asp-for="ToPlace" class="form-control" />
+                <span asp-validation-for="ToPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDateTime" class="control-label"></label>
+                <input asp-for="EndDateTime" class="form-control" />
+                <span asp-validation-for="EndDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleQty" class="control-label"></label>
+                <input asp-for="VehicleQty" class="form-control" />
+                <span asp-validation-for="VehicleQty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirCondition" class="control-label"></label>
+                <input asp-for="AirCondition" class="form-control" />
+                <span asp-validation-for="AirCondition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"rows="5" ></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+         
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />&nbsp;
+                <a asp-action="Index"class="btn btn-success">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+  
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

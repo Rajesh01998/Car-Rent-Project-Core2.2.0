@@ -19,5 +19,15 @@ namespace CarRentProjectCore.Manager
         {
             return _rentRequestRepository.GetAllRentRequest();
         }
+
+        public RentRequest GetRentRequestById(int id)
+        {
+            return _rentRequestRepository.GetRentRequestById(id);
+        }
+
+        public RentRequest GetRentRequestwithNameById(int id)
+        {
+            return _rentRequestRepository.GetRentRequestwithNameById(id);
+        }
     }
 }

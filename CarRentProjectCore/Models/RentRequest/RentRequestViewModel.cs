@@ -41,6 +41,8 @@ namespace CarRentProjectCore.Models.RentRequest
         public ICollection<CarRentCoreProject.Models.RentRequest> RentList { get; set; }
         public ICollection<SelectListItem> CustoemrLookUpdata { get; set; }
         public ICollection<SelectListItem> VehicleTypeLookupData { get; set; }
+        public CarRentCoreProject.Models.Customer CutomerDropDown { get; set; }
+        public CarRentCoreProject.Models.RentRequest Request { get; set; }
     }
 }
 

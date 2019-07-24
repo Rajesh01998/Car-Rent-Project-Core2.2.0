@@ -141,7 +141,12 @@ namespace CarRentProjectCore.Controllers
                 {
                     vehicle.IsDelete = true;
                     var IsUpdate = _vehicleTypeManager.Update(vehicle);
-                    return RedirectToAction(nameof(Index));
+                    if (IsUpdate)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    return NotFound();
                 }
 
 
