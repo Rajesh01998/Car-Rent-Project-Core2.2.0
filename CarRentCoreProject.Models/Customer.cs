@@ -14,9 +14,6 @@ namespace CarRentCoreProject.Models
         public bool IsDelete { get; set; }
         public List<RentRequest> RentRequests { get; set; }
 
-        public Customer where(bool v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
