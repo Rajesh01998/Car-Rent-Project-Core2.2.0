@@ -27,5 +27,16 @@ namespace CarRentProjectCore.Repository
         {
             return Context.RentRequests.Include(r=>r.Customer).Include(r=>r.VehicleType).Where(c => c.IsDelete == false).ToList();
         }
+
+        public RentRequest GetRentRequestById(int id)
+        {
+            return Context.RentRequests.Find(id);
+        }
+
+        public RentRequest GetRentRequestwithNameById(int id)
+        {
+            return Context.RentRequests.Include(c=>c.Customer).Include(c=>c.VehicleType).SingleOrDefault(d=>d.Id==id);
+        }
+
     }
 }

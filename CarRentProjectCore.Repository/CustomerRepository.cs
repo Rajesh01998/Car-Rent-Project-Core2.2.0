@@ -29,5 +29,7 @@ namespace CarRentProjectCore.Repository
         {
             return Context.Customers.Where(c => c.IsDelete == false).ToList();
         }
+
+      
     }
 }

@@ -38,7 +38,16 @@ namespace CarRentProjectCore.Controllers
         // GET: RentRequest/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var rentrequest = _rentrequestManager.GetRentRequestwithNameById(id);
+            if (rentrequest == null)
+            {
+                return NotFound();
+
+            }
+
+            var viewModel = _mapper.Map<RentRequestViewModel>(rentrequest);
+            
+            return View(viewModel);
         }
 
         // GET: RentRequest/Create
@@ -83,17 +92,38 @@ namespace CarRentProjectCore.Controllers
         // GET: RentRequest/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var request = _rentrequestManager.GetRentRequestById(id);
+            if (request == null)
+            {
+                return NotFound();
+            }
+            
+            var requestModel = _mapper.Map<RentRequestViewModel>(request);
+            requestModel.CustoemrLookUpdata = _utility.GetAllCustomerLookUpdata();
+            requestModel.VehicleTypeLookupData = _utility.GetAllVehicleTypelookUpdata();
+            return View(requestModel);
         }
 
         // POST: RentRequest/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(RentRequestViewModel ViewModel)
         {
             try
             {
                 // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var rentViewModel = _mapper.Map<RentRequest>(ViewModel);
+                    var IsUpdate = _rentrequestManager.Update(rentViewModel);
+                    if (!IsUpdate)
+                    {
+                        return NotFound();
+                    }
+
+                    return RedirectToAction("Index");
+                }
+                
 
                 return RedirectToAction(nameof(Index));
             }
@@ -106,19 +136,41 @@ namespace CarRentProjectCore.Controllers
         // GET: RentRequest/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var rentRequest = _rentrequestManager.GetRentRequestwithNameById(id);
+            if (rentRequest == null)
+            {
+                return NotFound();
+            }
+
+            var rentViewModel = _mapper.Map<RentRequestViewModel>(rentRequest);
+
+            return View(rentViewModel);
         }
 
         // POST: RentRequest/Delete/5
-        [HttpPost]
+        [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteComfrim(int id)
         {
+            
+
             try
             {
                 // TODO: Add delete logic here
+                var rentRequest = _rentrequestManager.GetRentRequestwithNameById(id);
+                if (rentRequest == null)
+                {
+                    return NotFound();
+                }
+                rentRequest.IsDelete = true;
+                var isUpdate = _rentrequestManager.Update(rentRequest);
+                if (isUpdate)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
 
-                return RedirectToAction(nameof(Index));
+                return NotFound();
+
             }
             catch
             {
