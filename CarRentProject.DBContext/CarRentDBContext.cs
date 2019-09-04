@@ -21,7 +21,7 @@ namespace CarRentProject.DBContext
         public DbSet<RentRequest> RentRequests { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-9H8CSSN\\SQLEXPRESS;Database=CarRentProjectCoreDB;Integrated Security=true;");
+            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=CarRentProjectCoreDB;Integrated Security=true;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,7 @@ namespace CarRentProject.DBContext
             modelBuilder.Entity<RentRequest>().Property(c => c.VehicleQty).IsRequired();
             modelBuilder.Entity<RentRequest>().Property(c => c.ToPlace).IsRequired();
             modelBuilder.Entity<RentRequest>().Property(c => c.FromPlace).IsRequired();
-
+            
         }
     }
 }

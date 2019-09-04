@@ -7,8 +7,9 @@
 
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="bootstrap" Version="3.4.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" /> 
+    <PackageReference Include="jQuery-datetimepicker" Version="2.4.5" /> 
+    <PackageReference Include="jQuery.UI" Version="1.12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
@@ -24,6 +25,16 @@
 
   <ItemGroup>
     <Folder Include="Utility\VehicleType\" />
+    <Folder Include="wwwroot\jquery-datetimepicker\2.4.5\content\Content\" />
+    <Folder Include="wwwroot\jquery-datetimepicker\2.4.5\content\Scripts\" />
+    <Folder Include="wwwroot\jquery.ui.combined\1.12.1\Content\Content\themes\" />
+    <Folder Include="wwwroot\jquery.ui.combined\1.12.1\Content\Content\themes\base\" />
+    <Folder Include="wwwroot\jquery.ui.combined\1.12.1\Content\Content\themes\base\images\" />
+    <Folder Include="wwwroot\jquery.ui.combined\1.12.1\Content\Scripts\" />
+    <Folder Include="wwwroot\jquery.ui.combined\1.12.1\Tools\" />
+    <Folder Include="wwwroot\jquery.ui\1.12.1.1\Content\Content\" />
+    <Folder Include="wwwroot\jquery.ui\1.12.1.1\Content\Content\images\" />
+    <Folder Include="wwwroot\jquery.ui\1.12.1.1\Content\Scripts\" />
   </ItemGroup>
 
 </Project>

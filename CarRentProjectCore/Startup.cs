@@ -49,7 +49,7 @@ namespace CarRentProjectCore
             services.AddTransient<DbContext, CarRentDBContext>();
             services.AddDbContext<CarRentDBContext>(optionBuilder =>
             {
-                optionBuilder.UseSqlServer("Server=DESKTOP-9H8CSSN\\SQLEXPRESS;Database=CarRentProjectCoreDB;Integrated Security=true;");
+                optionBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=CarRentProjectCoreDB;Integrated Security=true;");
             });
 
             services.AddAutoMapper();

@@ -72,6 +72,10 @@ namespace CarRentProjectCore.Controllers
                 {
 
                     var rentRequest = _mapper.Map<RentRequest>(rentRequestViewModel);
+                    if (rentRequest == null)
+                    {
+                        return NotFound();
+                    }
                     var IsAdd = _rentrequestManager.Add(rentRequest);
                     if (IsAdd)
                     {
