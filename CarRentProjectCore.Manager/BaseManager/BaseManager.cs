@@ -23,7 +23,7 @@ namespace CarRentProjectCore.Manager.BaseManager
             return _baseRepository.GetAll();
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(int? id)
         {
             return _baseRepository.GetById(id);
         }

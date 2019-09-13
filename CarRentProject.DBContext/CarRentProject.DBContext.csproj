@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190905090254_notification_and_RentAssign_Table_added.cs" />
+    <Compile Remove="Migrations\20190905175458_Notification_and_RentAssign_Table_added.cs" />
+    <Compile Remove="Migrations\20190905181505_Notification_and_RentAssign_Table_added.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />

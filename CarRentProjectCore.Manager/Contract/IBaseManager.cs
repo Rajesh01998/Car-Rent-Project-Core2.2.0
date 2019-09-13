@@ -9,7 +9,7 @@ namespace CarRentProjectCore.Manager.Contract
         bool Add(T entity);
         bool Remove(T entity);
         bool Update(T entity);
-        T GetById(int id);
+        T GetById(int? id);
         ICollection<T> GetAll();
     }
 }

@@ -29,7 +29,7 @@ namespace CarRentProjectCore.Repository.Base
             return Table.ToList();
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(int? id)
         {
             return Table.Find(id);
         }

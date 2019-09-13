@@ -9,13 +9,17 @@ namespace CarRentProjectCore.Utility.Customer
 {
     public class DropDownUtility:IUtilityManager
     {
-        private ICustomerManager _customerManager;
-       private IVehicleTypeManager _vehicleTypeManager;
+        private readonly ICustomerManager _customerManager;
+       private readonly IVehicleTypeManager _vehicleTypeManager;
+       private readonly IRentRequestManager _rentRequestManager;
+       private readonly IRentAssignManager _rentAssignManager;
 
-        public DropDownUtility(ICustomerManager customerManager, IVehicleTypeManager vehicleTypeManager)
+        public DropDownUtility(ICustomerManager customerManager, IVehicleTypeManager vehicleTypeManager,IRentRequestManager rentRequestManager,IRentAssignManager rentAssignManager)
         {
             _customerManager = customerManager;
             _vehicleTypeManager = vehicleTypeManager;
+            _rentRequestManager = rentRequestManager;
+            _rentAssignManager = rentAssignManager;
         }
 
         public ICollection<SelectListItem> GetAllCustomerLookUpdata()
@@ -35,5 +39,16 @@ namespace CarRentProjectCore.Utility.Customer
                 Text = c.Name
             }).ToList();
         }
+
+        public ICollection<SelectListItem> GetRentReq()
+        {
+            return _rentRequestManager.GetAllRentRequest().Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Customer.Name
+            }).ToList();
+        }
+
+        
     }
 }

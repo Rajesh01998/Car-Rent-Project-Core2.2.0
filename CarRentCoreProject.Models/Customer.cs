@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CarRentCoreProject.Models
@@ -13,6 +14,7 @@ namespace CarRentCoreProject.Models
         public string Address { get; set; }
         public bool IsDelete { get; set; }
         public List<RentRequest> RentRequests { get; set; }
+        public List<Notification> Notifications { get; set; }
 
        
     }

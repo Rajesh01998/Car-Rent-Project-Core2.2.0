@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CarRentProjectCore.Models.RentAssign.RentAssignViewModel>
+
+@{
+    ViewData["Title"] = "Rent Assign List";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Add</a>
+</p>
+<table class="table table-bordered" id="example">
+    <thead>
+    <tr>
+        <th>Sl</th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentAssignDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        var sl = 0;
+    }
+    @foreach (var item in Model)
+    {
+        sl++;
+        <tr>
+            <td>@sl</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentAssignDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentRequest.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+@section scripts{
+
+    <script src="~/project Script/projectScript.js"></script>
+}

@@ -1,0 +1,72 @@
+﻿@using System.Collections.Specialized
+@model IEnumerable<CarRentProjectCore.Models.Notification.NotificationViewModel>
+
+@{
+    ViewData["Title"] = "Notification List";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered"id="example">
+    <thead>
+    <tr>
+        <th>SL</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRequest)
+        </th>
+
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        var sl = 0;
+    }
+    @foreach (var item in Model)
+    {
+        sl++;
+        <tr>
+            <td>@sl</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotificationDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentRequest.FromPlace)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+@section Scripts{ 
+<script src="~/project Script/projectScript.js"></script>
+}

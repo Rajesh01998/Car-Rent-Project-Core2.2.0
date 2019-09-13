@@ -10,5 +10,7 @@ namespace CarRentProjectCore.Utility
     {
         ICollection<SelectListItem> GetAllCustomerLookUpdata();
         ICollection<SelectListItem> GetAllVehicleTypelookUpdata();
+        ICollection<SelectListItem> GetRentReq();
+       
     }
 }

@@ -13,24 +13,24 @@ namespace CarRentProjectCore.Models.RentRequest
     {
         public int Id { get; set; }
 
-        [Required,StringLength(255)]
+        [Required,StringLength(255),MinLength(3)]
         [Display(Name = "Destination Point")]
         public string FromPlace { get; set; }
 
-        [Display(Name ="Start Date Time"),Required(ErrorMessage = "Please Select Start Date?")]
+        [Display(Name ="Start Date"),Required(ErrorMessage = "Please Select Start Date?")]
         public DateTime StartDateTime { get; set; }
 
         [Required, StringLength(255)]
         [Display(Name ="End Point")]
         public string ToPlace { get; set; }
 
-        [Display(Name ="End Date Time"),Required(ErrorMessage = "Please Select End Date?")]
+        [Display(Name ="End Date"),Required(ErrorMessage = "Please Select End Date?")]
         public DateTime EndDateTime { get; set; }
 
-        [Required,Display(Name ="Quentity"),Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
+        [Required,Display(Name ="Quantity"),Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
         public int VehicleQty { get; set; }
 
-        [DataType(DataType.MultilineText)]
+        [DataType(DataType.MultilineText),StringLength(255)]
         public string Description { get; set; }
 
         [Required(ErrorMessage ="Please Select AC or Non-AC!")]

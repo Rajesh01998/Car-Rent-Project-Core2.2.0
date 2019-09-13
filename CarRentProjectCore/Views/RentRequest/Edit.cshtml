@@ -20,7 +20,7 @@
                         Select..
                     </option>
                 </select>
-               
+
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="StartDateTime" class="control-label"></label>
-                <input asp-for="StartDateTime" class="form-control" />
+                <input asp-for="StartDateTime" class="form-control" id="datetimepicker" />
                 <span asp-validation-for="StartDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -51,12 +51,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="EndDateTime" class="control-label"></label>
-                <input asp-for="EndDateTime" class="form-control" />
+                <input asp-for="EndDateTime" class="form-control" id="datetimepicker2"/>
                 <span asp-validation-for="EndDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VehicleQty" class="control-label"></label>
-                <input asp-for="VehicleQty" class="form-control" />
+                <input asp-for="VehicleQty" class="form-control"type="tel" />
                 <span asp-validation-for="VehicleQty" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -66,24 +66,25 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control"rows="5" ></textarea>
+                <textarea asp-for="Description" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-         
+
 
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />&nbsp;
-                <a asp-action="Index"class="btn btn-success">Back to List</a>
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-  
+
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/project Script/projectScript.js"></script>
 }

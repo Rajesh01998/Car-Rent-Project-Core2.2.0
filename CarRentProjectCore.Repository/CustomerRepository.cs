@@ -12,11 +12,12 @@ namespace CarRentProjectCore.Repository
 {
     public class CustomerRepository:BaseRepository<Customer>,ICustomerRepository
     {
-        public CarRentDBContext Context
+        private DbContext db;
+        private CarRentDBContext Context
         {
             get {return (CarRentDBContext)db;}
         }
-        private DbContext db;
+        
         public CustomerRepository(DbContext db):base(db)
         {
             this.db = (CarRentDBContext)db;

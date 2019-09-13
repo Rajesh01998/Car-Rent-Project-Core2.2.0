@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Utility\VehicleType\" />
+    <Folder Include="Views\Notification\" />
     <Folder Include="wwwroot\jquery-datetimepicker\2.4.5\content\Content\" />
     <Folder Include="wwwroot\jquery-datetimepicker\2.4.5\content\Scripts\" />
     <Folder Include="wwwroot\jquery.ui.combined\1.12.1\Content\Content\themes\" />

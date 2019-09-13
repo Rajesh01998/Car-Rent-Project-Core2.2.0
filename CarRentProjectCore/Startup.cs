@@ -46,7 +46,12 @@ namespace CarRentProjectCore
             services.AddTransient<IVehicleTypeManager, VehicleTypeManager>();
             services.AddTransient<IVehicleTypeRepository, VehicleTypeRepository>();
             services.AddTransient<IUtilityManager, DropDownUtility>();
+            services.AddTransient<INotificationRepository,NotificationRepository>();
+            services.AddTransient<IRentAssignRepository, RentAssignRepository>();
+            services.AddTransient<INotificationManager, NotificationManager>();
+            services.AddTransient<IRentAssignManager, RentAssignManager>();
             services.AddTransient<DbContext, CarRentDBContext>();
+           
             services.AddDbContext<CarRentDBContext>(optionBuilder =>
             {
                 optionBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=CarRentProjectCoreDB;Integrated Security=true;");

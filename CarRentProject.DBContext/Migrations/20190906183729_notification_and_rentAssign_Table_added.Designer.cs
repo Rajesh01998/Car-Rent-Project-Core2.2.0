@@ -4,14 +4,16 @@ using CarRentProject.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRentProject.DBContext.Migrations
 {
     [DbContext(typeof(CarRentDBContext))]
-    partial class CarRentDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190906183729_notification_and_rentAssign_Table_added")]
+    partial class notification_and_rentAssign_Table_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,8 +57,6 @@ namespace CarRentProject.DBContext.Migrations
                     b.Property<string>("Details")
                         .IsRequired();
 
-                    b.Property<bool>("IsDelete");
-
                     b.Property<DateTime>("NotificationDateTime");
 
                     b.Property<int>("RentRequestId");
@@ -80,8 +80,6 @@ namespace CarRentProject.DBContext.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Comment");
-
-                    b.Property<bool>("IsDelete");
 
                     b.Property<DateTime>("RentAssignDateTime");
 

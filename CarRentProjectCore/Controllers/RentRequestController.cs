@@ -57,6 +57,15 @@ namespace CarRentProjectCore.Controllers
             model.RentList = _rentrequestManager.GetAll();
             model.VehicleTypeLookupData = _utility.GetAllVehicleTypelookUpdata();
             model.CustoemrLookUpdata = _utility.GetAllCustomerLookUpdata();
+            if (model.VehicleTypeLookupData  == null)
+            {
+                return NotFound();
+            }
+
+            if (model.CustoemrLookUpdata == null)
+            {
+                return NotFound();
+            }
             return View(model);
         }
 

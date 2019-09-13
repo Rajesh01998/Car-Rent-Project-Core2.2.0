@@ -3,10 +3,11 @@
 @{
     ViewData["Title"] = "List of Rent Request";
 }
-
+<h1>List of Rent </h1> 
 
 <div class="row">
-    <p>
+
+    <p style="padding-left:1%">
         <a asp-action="Create" class="btn btn-success">Create New</a>
     </p>
 
@@ -93,6 +94,8 @@
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        @Html.ActionLink("Assign", "Assign", "RentAssign", new { reqId = item.Id }, new { @class = "btn btn-success btn-sm" })<span>&nbsp;</span>
+                        @*<a asp-controller="RentAssign" asp-action="Assign"asp>Assign</a>*@
                     </td>
                 </tr>
             }

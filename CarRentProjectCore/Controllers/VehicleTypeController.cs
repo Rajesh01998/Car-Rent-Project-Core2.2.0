@@ -24,6 +24,10 @@ namespace CarRentProjectCore.Controllers
         public ActionResult Index()
         {
             var vehicle = _vehicleTypeManager.GetAllVehicle();
+            if (vehicle == null)
+            {
+                return NotFound();
+            }
             var vehiclelist = _mapper.Map<List<VehicleTypeViewModel>>(vehicle);
 
             return View(vehiclelist);
